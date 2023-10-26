@@ -163,6 +163,7 @@ func (l *LspServer) initialCheckProject(ctx context.Context, checkFlagList []boo
 	timeBegin := time.Now()
 
 	// 尝试读取vscode目录下面的luahelper.json工程配置文件
+	log.Debug("initialCheckProject. vscodeRoot: %s, checkFlagList: %s, ignoreFileOrDir: %s, ignoreFileOrDirErr: %s", vscodeRoot, checkFlagList, ignoreFileOrDir, ignoreFileOrDirErr)
 	if readErr := common.GConfig.ReadConfig(vscodeRoot, "luahelper.json", checkFlagList, ignoreFileOrDir,
 		ignoreFileOrDirErr); readErr != nil {
 		return readErr
